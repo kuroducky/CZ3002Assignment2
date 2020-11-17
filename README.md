@@ -16,6 +16,7 @@ cd CZ3002Assignment2
 
 ## 2. Ensure that you have Maven and MySQL installed and configured in your system environment variables
 Installation guide for Maven : https://maven.apache.org/download.cgi
+
 Installation guide for MySQL : https://dev.mysql.com/doc/refman/8.0/en/installing.html
 
 Ensure that the bin files for MySQL and Maven are added to your environment variables
