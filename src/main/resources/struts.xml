@@ -1,26 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
-        "http://struts.apache.org/dtds/struts-2.5.dtd">
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
 
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true" />
 
-    <package name="myPackage" extends="struts-default">
-
-        <default-action-ref name="index" />
-
-        <action name="index" class="org.example.IndexAction">
-            <result>/WEB-INF/jsp/index.jsp</result>
+    <package name="basicstruts2" extends="struts-default">
+        <action name="index">
+            <result>/index.jsp</result>
         </action>
-
-        <action name="helloWorld" class="helloWorldAction">
-            <result name="input">/WEB-INF/jsp/index.jsp</result>
-            <result>/WEB-INF/jsp/helloWorld.jsp</result>
+        
+        <action name="login" class="LoginController" method="execute">  
+            <result name="success">loginsuccess.jsp</result>  
+            <result name="error">loginerror.jsp</result>  
         </action>
-
     </package>
 
 </struts>
