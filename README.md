@@ -20,8 +20,7 @@ Installation guide for MySQL : https://dev.mysql.com/doc/refman/8.0/en/installin
 
 Ensure that the bin files for MySQL and Maven are added to your environment variables
 
-As of this version, the current version for Maven is "2.5.25"
-As of this version, the current version for MySQL is "8.0.22"
+As of this version, the current version for Maven and MySQL is "2.5.25" and "8.0.22" respectively.
 
 ## 3. Run MySQL Database Creation Script 
 
