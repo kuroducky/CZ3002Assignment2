@@ -36,10 +36,12 @@ Here, <username> is the username you have set for your MySQL server.
 After running the command mentioned above in the command prompt/terminal, you will be prompted for a password. Enter the password that is set for your MySQL database.
 After successfully keying in your password, the script will create a database that includes a table "account_info" and populates it with 3 rows of data:
 
+```
 username password 
 admin    admin
 user1    pass1
 user2    pass2
+```
 
 ## 4. Starting the Jetty server and testing out the Web Application
 
