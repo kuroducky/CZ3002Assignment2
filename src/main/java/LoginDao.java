@@ -1,7 +1,7 @@
 import java.sql.Connection;  
 import java.sql.DriverManager;  
 import java.sql.PreparedStatement;  
-import java.sql.ResultSet;  
+import java.sql.ResultSet;
 public class LoginDao implements LoginDaoInterface{  
     private Login login;
 
@@ -13,7 +13,7 @@ public class LoginDao implements LoginDaoInterface{
     public boolean validate(){  
         String username = this.login.getUsername();
         String userpass = this.login.getUserpass();
-        boolean status=false;  
+        boolean status =false;
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -25,11 +25,11 @@ public class LoginDao implements LoginDaoInterface{
             ps.setString(1, username);  
             ps.setString(2, userpass);  
             ResultSet rs=ps.executeQuery();  
-            status=rs.next();  
+            status=rs.next();
         }
         catch(Exception e){
             e.printStackTrace();
         }  
-        return status;  
+        return status;
     }  
 }  
