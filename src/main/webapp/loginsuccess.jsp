@@ -3,7 +3,7 @@
 <%@ taglib prefix="z" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<z:default_layout pageTitle="Login Success!">
+<z:default_layout pageTitle="LoginDetails Success!">
     <div class="container">
         <h1>Successful login.</h1>
         <h1>Welcome, <i><s:property value="username" /></i></h1>

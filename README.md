@@ -38,9 +38,9 @@ username: root
 password: password1
 ```
 
-You will need to change the credentials defined in the connection string in [around line 20 of LoginDao.java file](src/main/java/LoginDao.java#L20). 
+You will need to change the credentials defined in the connection string in [around line 5-8 of LoginDao.java file](src/main/java/LoginDao.java#L5-L8). 
 
-This next step creates a database that we are going to use for validation in our simple Login page.
+This next step creates a database that we are going to use for validation in our simple LoginDetails page.
 
 After installation, in the same command prompt/terminal, run the following command:
 ```

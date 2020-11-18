@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>
         <s:if test="pageTitle == null">
-            Group 27 Login
+            Group 27 LoginDetails
         </s:if>
         <s:else>
             ${pageTitle}

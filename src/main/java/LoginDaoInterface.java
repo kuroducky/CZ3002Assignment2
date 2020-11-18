@@ -1,3 +1,3 @@
 public interface LoginDaoInterface{
-    public boolean validate();
+    boolean validate();
 }

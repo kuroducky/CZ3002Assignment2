@@ -1,8 +1,8 @@
-public class Login{
+public class LoginDetails {
     private String username;
     private String userpass;
 
-    public Login(String username, String userpass){
+    public LoginDetails(String username, String userpass){
         this.username = username;
         this.userpass = userpass;
     }

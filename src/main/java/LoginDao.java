@@ -1,35 +1,40 @@
-import java.sql.Connection;  
-import java.sql.DriverManager;  
-import java.sql.PreparedStatement;  
-import java.sql.ResultSet;
-public class LoginDao implements LoginDaoInterface{  
-    private Login login;
+import java.sql.*;
 
-    public LoginDao(String username, String userpass){
-        this.login = new Login(username, userpass);
+public class LoginDao implements LoginDaoInterface {
+    private final LoginDetails loginDetails;
+    private final static String dbUsername = "root";
+    private final static String dbPassword = "password1";
+    private final static String dbAddress = "localhost";
+    private final static int dbPort = 3306;
+
+    private static Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(
+                String.format(
+                        "jdbc:mysql://%s:%d/account_credentials?user=%s&password=%s&serverTimezone=UTC",
+                        dbAddress, dbPort, dbUsername, dbPassword, dbPassword
+                )
+        );
+    }
+
+    public LoginDao(String username, String userpass) {
+        this.loginDetails = new LoginDetails(username, userpass);
     }
 
     //Implementation of abstract method validate() in LoginDaoInterface
-    public boolean validate(){  
-        String username = this.login.getUsername();
-        String userpass = this.login.getUserpass();
-        boolean status =false;
-        try{  
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/account_credentials?user=root&password=password1&serverTimezone=UTC"
-            );
+    public boolean validate() {
+        try {
+            Connection con = getConnection();
             System.out.println("Database connected!");
-            PreparedStatement ps=con.prepareStatement(  
-                "select * from account_info where username=? and password=?");  
-            ps.setString(1, username);  
-            ps.setString(2, userpass);  
-            ResultSet rs=ps.executeQuery();  
-            status=rs.next();
-        }
-        catch(Exception e){
+            PreparedStatement ps = con.prepareStatement(
+                    "select * from account_info where username=? and password=?");
+            ps.setString(1, this.loginDetails.getUsername());
+            ps.setString(2, this.loginDetails.getUserpass());
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (Exception e) {
             e.printStackTrace();
-        }  
-        return status;
-    }  
+        }
+        return false;
+    }
 }  
